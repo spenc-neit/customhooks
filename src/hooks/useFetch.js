@@ -5,25 +5,24 @@ const baseUrl = "http://localhost:3000";
 
 export const useFetch = (url) => {
 	const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(undefined)
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(undefined);
 
 	useEffect(() => {
 		const getData = async () => {
-            setError(undefined)
+			setError(undefined);
 			try {
 				const response = await axios.get(`${baseUrl}/${url}`);
 				setData(response.data);
-                //wfhekhekg
 			} catch (error) {
 				console.log(error);
-                setError(error)
-			} finally{
-                setLoading(false)
-            }
+				setError(error);
+			} finally {
+				setLoading(false);
+			}
 		};
 		getData();
 	}, [url]);
 
-	return {data, loading, error};
+	return { data, loading, error };
 };
