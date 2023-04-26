@@ -4,6 +4,8 @@ import axios from "axios";
 import { useFetch } from "../hooks/useFetch";
 const FetchingData = () => {
 	const { data : posts, loading, error } = useFetch("posts");
+	
+	console.log(posts)
 
 	if (error) {
 		return <p>An error occurred: {error}</p>;
